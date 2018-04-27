@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './components/styles.css';
 import {Header} from './components/Header';
-
+import {Contain} from './components/Contain';
 import {Footer} from './components/Footer';
 import {Menu} from './components/Menu';
-import {Contacts} from './components/Contacts';
+
+import { BrowserRouter as Router} from 'react-router-dom';
+
 
 class App extends Component {
+   
   render() {
+    
     return (
+    <Router>
       <div>
-        <Header />
+        <Header/>
         <Menu />
+        <Contain/>
         <Footer />
       </div>
+    </Router>
         
     );
   }

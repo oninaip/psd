@@ -3,14 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "formsy-react": "^1.1.4",
+    "highlight": "^0.2.4",
+    "inputmask": "^3.3.11",
+    "is_js": "^0.9.0",
+    "jquery": "^3.3.1",
+    "mongodb": "^3.0.5",
+    "mongoose": "^5.0.13",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17"
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "1.0.17",
+    "react-transition-group": "^2.2.1",
+    "redux": "^3.7.2",
+    "save": "^2.3.2",
+    "validate.js": "^0.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3010 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

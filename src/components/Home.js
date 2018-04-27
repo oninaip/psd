@@ -2,6 +2,7 @@ import React from 'react';
 import panel from "../img/panel.png";
 import panel2 from "../img/panel2.png";
 import panel3 from "../img/panel3.png";
+
 const olList=[
     'Lorem ipsum dolor sit amet',
     'Consectetur adipiscing elit',
@@ -71,18 +72,18 @@ export class Home extends React.Component {
                         <h2>What We Do…</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore 
                             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                            consequat. Duis aute irure dolor in <a href="#">reprehenderit in voluptate velit esse</a> cillum dolore eu fugiat nulla pariatur. 
+                            consequat. Duis aute irure dolor in <a href="/">reprehenderit in voluptate velit esse</a> cillum dolore eu fugiat nulla pariatur. 
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div className="content_b">
                         <div className="panel">
-                            <a href="#"><h3>Admin panel</h3><img src={panel} /></a>
+                            <a href="/"><h3>Admin panel</h3><div className="shadow"><img src={panel} alt="panel"/></div></a>
                         </div>
                         <div className="panel">
-                            <a href="#"><h3>Shortcodes</h3><img src={panel2}/></a>
+                            <a href="/"><h3>Shortcodes</h3><div className="shadow"><img src={panel2} alt="panel2"/></div></a>
                         </div>
                         <div className="panel">
-                            <a href="#"><h3>Videos</h3><img src={panel3}/></a>
+                            <a href="/"><h3>Videos</h3><div className="shadow"><img src={panel3} alt="panel3"/></div></a>
                         </div>
                     </div>
                     <div><h2>Lists</h2></div>
@@ -155,7 +156,7 @@ export class Home extends React.Component {
                                             <td>{tab.text}</td>
                                             <td>{tab.about}</td>
                                             <td>{tab.who}</td>
-                                            <td className={tab.languageClass}><a href="#">{tab.language}</a></td>
+                                            <td className={tab.languageClass}><a href="/">{tab.language}</a></td>
                                         </tr> )
                                     })}
                             </tbody>
@@ -166,3 +167,4 @@ export class Home extends React.Component {
         );
     }
 }
+

@@ -1,15 +1,27 @@
 import React from 'react';
 import headerImg from '../img/header.jpg';
-export class Header extends React.Component {
+import {Link} from 'react-router-dom';
+import {newState} from './store/actions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+export class HeaderCl extends React.Component {
      constructor(props){
         super(props);
         this.state ={
             title: "Cherry ",
             ps: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             headerImg: "../img/header.jpg",
-            valueSearch:"Search..."
+            valueSearch:"",
+            onClick:false
         }
+         this.searchValue=this.searchValue.bind(this);   
     }
+    searchValue(e){
+        
+        this.setState({valueSearch:e.target.value});
+    }
+  
     render(){
         return (
         <div className="header">
@@ -21,15 +33,26 @@ export class Header extends React.Component {
                     
                 </div>
                 <div className="search">
-                        <input type="text" className="inputSearch" placeholder={this.state.valueSearch}/>
-                        <input type="button" className="button" defaultValue="&#xe986;"/>
+                        <input  type="text" 
+                                className="inputSearch" 
+                                value={this.state.valueSearch} 
+                                placeholder="Search..." 
+                                onChange={this.searchValue}/>
+                    <Link to="/SearchResult" >
+                        <input type="button" 
+                                className="button" 
+                                defaultValue="&#xe986;" 
+                                onClick={()=>{
+                                    this.setState({valueSearch:""});
+                                    this.props.newState(this.state.valueSearch)}}/>
+                    </Link>
                 </div>
               </div>
             
             </div>
             <div className="headerImg">
                 <div className="headerImg2">
-                    <img src={headerImg} />
+                    <img src={headerImg} alt="header"/>
                 </div>
                 <div className="headerAbout">
                     <div className="headerAbout1">
@@ -47,8 +70,15 @@ export class Header extends React.Component {
                      </div>
                 </div>
             </div>
+                    
         </div>);
     }
+            
 }
-         
-     
+const mapStateToProps=(state)=>{
+    return {newStateR:state.reducerState}
+    }
+const matchDispatchToProps = (dispatch)=>{
+    return { newState:bindActionCreators(newState,dispatch)}
+    }
+export const Header = connect(mapStateToProps,matchDispatchToProps)(HeaderCl);

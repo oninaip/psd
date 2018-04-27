@@ -1,19 +1,11 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
-import {Contacts} from './Contacts';
-import {About} from './About';
-import {Home} from './Home';
-import {ContactUs} from './ContactUs';
+import {Link} from 'react-router-dom';
+
+
 export class Menu extends React.Component {
     render(){
         return (   
-            <Router>
-                <div>
-                    <div className="meniu">
+                <div className="meniu">
                         <div className="meniu1">
                             <div className="meniu2">
                                 <ul>
@@ -23,7 +15,7 @@ export class Menu extends React.Component {
                                     <li><Link to="/Styles">Styles</Link></li>
                                     <li><Link to="/Blog">Blog</Link></li>
                                     <li><Link to="/Cherry">Cherry</Link></li>
-                                    <li><Link to="/Contact">Contact</Link></li>
+                                    <li><Link to="/Contacts">Contact</Link></li>
                                 </ul>
 
                             </div>
@@ -33,12 +25,8 @@ export class Menu extends React.Component {
                         </div>
                     </div>
                    
-                    <div className="content">
-                        <ContactUs/>
-                        <Route exact path="/" component={Home}/> 
-                    </div>
-                </div>
-            </Router> 
+                 
+            
             );
          }
 }
