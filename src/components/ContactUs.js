@@ -125,13 +125,13 @@ export class ContactUs extends React.Component {
                     <form>
                         
                         {this.nameValid? <span className="error">{this.state.nameError}</span> :  null  }
-                        <input type="text" placeholder="Name" value={this.state.nameValue} onChange={this.nameInput} />
+                        <input type="text" placeholder="Your Name" value={this.state.nameValue} onChange={this.nameInput} />
                         {this.numberValid? <span className="error">{this.state.numberError}</span> :  null  }
             
                         <input type="text" className="numberInput" placeholder="Daytime Number" value={this.state.numberValue} onChange={this.numberInput}/>
                         {this.emailValid ?   <span className="error">{this.state.emailError}</span>:   null }
             
-                        <input type="text" placeholder="Email" value={this.state.emailValue} onChange={this.emailInput} />
+                        <input type="text" placeholder="Email Address" value={this.state.emailValue} onChange={this.emailInput} />
                         
                         <input type="text" placeholder="City" value={this.state.cityValue} onChange={this.cityInput} />
             
@@ -141,7 +141,7 @@ export class ContactUs extends React.Component {
                              <option value="456">456</option>
                         </select>
                         <select placeholder="Brand" value={this.state.selectValue2} onChange={this.selectOption2} required={true}>
-                             <option value="Brand" >Brand</option>
+                             <option value="Brand">Brand</option>
                              <option value="123">123</option>
                              <option value="456">456</option>
                         </select>

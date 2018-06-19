@@ -11,7 +11,7 @@ import {Cherry} from './Cherry';
 
 export class Contain extends React.Component {
     render(){
-        
+         
         return (   
             
                     <div className="content">

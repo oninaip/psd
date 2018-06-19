@@ -44,7 +44,7 @@ class  Extend2 extends React.Component{
         return (
             
            <div className="app2">
-                <div className="date">Pratesti: {this.state.value3} d.</div>
+                <div className="date">Extend: {this.state.value3} d.</div>
                 <div className="sliderDate">
                     <input type="range" min="1" max="15" className="slider" value={this.state.value3} onChange={this.handleChange3} />
                 </div>
@@ -57,7 +57,7 @@ class  Extend2 extends React.Component{
                 <div className="input">
                     <Link to="/Sliders/History">
                         <input type="submit" 
-                            value="Pratęsti" 
+                            value="Extend" 
                             onClick={()=>{this.props.addHistory(credit)}}/>
                     </Link>
                 </div>

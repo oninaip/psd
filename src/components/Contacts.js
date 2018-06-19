@@ -4,6 +4,9 @@ import katia2 from "../img/katia2.jpg";
 import katia3 from "../img/katia3.jpg";
 import {ContactsAbout} from './containers/ContactsAbout';
 import {numbers} from './numbers';
+import {seeLocation} from './store/actions';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 const contacts=[
     {name:"Jekaterina",
@@ -27,8 +30,10 @@ const contacts=[
     number:"+37060000001",
     foto:katia3}
 ];
-export class  Contacts extends React.Component{
-   
+class  Contacts2 extends React.Component{
+    componentWillMount(){
+        this.props.seeLocation(this.props.location.pathname);
+    }
     render(){
         
         return (
@@ -75,3 +80,15 @@ export class  Contacts extends React.Component{
         );
     }
 }
+
+
+const mapStateToProps=(state)=>{
+ return {seelocation:state.reducerLocation}   
+}
+const matchDispatchToProps = (dispatch) =>{
+    return{
+        seeLocation:bindActionCreators(seeLocation,dispatch)
+    }
+}
+
+export const Contacts=connect(mapStateToProps,matchDispatchToProps)(Contacts2);

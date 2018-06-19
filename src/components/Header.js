@@ -1,5 +1,4 @@
 import React from 'react';
-import headerImg from '../img/header.jpg';
 import {Link} from 'react-router-dom';
 import {newState} from './store/actions';
 import {connect} from 'react-redux';
@@ -10,7 +9,7 @@ export class HeaderCl extends React.Component {
         super(props);
         this.state ={
             title: "Cherry ",
-            ps: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            ps: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
             headerImg: "../img/header.jpg",
             valueSearch:"",
             onClick:false
@@ -50,24 +49,25 @@ export class HeaderCl extends React.Component {
               </div>
             
             </div>
-            <div className="headerImg">
-                <div className="headerImg2">
-                    <img src={headerImg} alt="header"/>
-                </div>
-                <div className="headerAbout">
-                    <div className="headerAbout1">
-                        <h2>Eaten berry</h2>
-                        <p className="headerGrey">and go for a walk</p>
+            <div className="headerImg0">
+                <div className="headerImg">
+                    <div className="headerImg2">
                     </div>
-                    <div className="headerAbout2">
-                        <h3>Today good weather...</h3>
-                        <span className="headerText">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                            <p>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-                            <p>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p> 
-                            <p>consequat.</p>
-                        </span>
-                     </div>
+                    <div className="headerAbout">
+                        <div className="headerAbout1">
+                            <h2>Eaten berry</h2>
+                            <p className="headerGrey">and go for a walk</p>
+                        </div>
+                        <div className="headerAbout2">
+                            <h3>Today good weather...</h3>
+                            <span className="headerText">
+                                Lorem ipsum dolor sit amet,  consectetur  adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat.
+                            </span>
+                         </div>
+                    </div>
                 </div>
             </div>
                     

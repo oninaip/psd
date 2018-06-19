@@ -25,6 +25,15 @@ export function removeData(index){
         
     }
 }
+export function seeLocation(id){
+    var loc="";
+    if(id === "/"){loc="/Home"}else {loc=id};
+    return {
+        type: "SEE_LOCATION",
+        payload:loc
+    }
+}
+
 export function updateData(id,newName,newSurname,newAbout){
     var date= new Date();
     var year = date.toLocaleDateString('ko-KR');

@@ -1,8 +1,12 @@
 import React from 'react';
+import {seeLocation} from './store/actions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-
-export class  Portfolio extends React.Component{
-   
+class  Portfolio2 extends React.Component{
+    componentWillMount(){
+        this.props.seeLocation(this.props.location.pathname);
+    }
     render(){
         
         return (
@@ -26,3 +30,14 @@ export class  Portfolio extends React.Component{
         );
     }
 }
+
+const mapStateToProps=(state)=>{
+ return {seelocation:state.reducerLocation}   
+}
+const matchDispatchToProps = (dispatch) =>{
+    return{
+        seeLocation:bindActionCreators(seeLocation,dispatch)
+    }
+}
+
+export const Portfolio=connect(mapStateToProps,matchDispatchToProps)(Portfolio2);

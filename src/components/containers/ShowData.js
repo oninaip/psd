@@ -112,8 +112,14 @@ class showData2 extends React.Component{
             return (<div className="blogTable" >
                         <div className="blogName">{this.props.items.name} {this.props.items.surname}
                            <div>
-                                <input type="button" className="blogList" value="remove" onClick={()=>this.props.removeData(this.props.items.id) }/>
-                                <input type="button" className="blogList" value="update" onClick={()=>{this.setState({update:true})}}/>
+                                <input type="button" 
+                                        className="blogList" 
+                                        value="remove" 
+                                        onClick={()=>this.props.removeData(this.props.items.id) }/>
+                                <input type="button" 
+                                        className="blogList" 
+                                        value="edit" 
+                                        onClick={()=>{this.setState({update:true})}}/>
                             </div>
                       </div>
                         <div className="blogDate">{this.props.items.date} {this.props.items.time}</div>

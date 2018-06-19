@@ -1,5 +1,5 @@
 import React from 'react';
-import {addData} from './store/actions';
+import {addData,seeLocation} from './store/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ShowData} from './containers/ShowData';
@@ -87,7 +87,9 @@ class  Blog extends React.Component{
         this.setState({aboutError:aboutError});
         return true;
     }
-    
+    componentWillMount(){
+        this.props.seeLocation(this.props.location.pathname);
+    }
     render(){
         
         return (
@@ -146,7 +148,8 @@ const MapStateToProps=(state)=>{
 }
 const matchDispatchToProps = (dispatch) =>{
     return{
-        addData:bindActionCreators(addData,dispatch)
+        addData:bindActionCreators(addData,dispatch),
+        seeLocation:bindActionCreators(seeLocation,dispatch)
     }
 }
 export const BlogWrapped= connect(MapStateToProps,matchDispatchToProps)(Blog);

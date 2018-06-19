@@ -2,6 +2,9 @@ import React from 'react';
 import panel from "../img/panel.png";
 import panel2 from "../img/panel2.png";
 import panel3 from "../img/panel3.png";
+import {seeLocation} from './store/actions';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 const olList=[
     'Lorem ipsum dolor sit amet',
@@ -60,16 +63,22 @@ const table=[
     } 
 ]
 
-export class Home extends React.Component {
+export class Home2 extends React.Component {
+     componentWillMount(){
+        this.props.seeLocation(this.props.location.pathname);
+    }
     render(){
+        
         let ul="<ul>";
         let unstyled="<ul classs=”unstyled”>";
         let ol="<ol>";
+        
         return (
             <div className="content1">
                 <div className="content2">
+                    <div><h2>What We Do…</h2></div>
                     <div className="content_a">
-                        <h2>What We Do…</h2>
+                        
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore 
                             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
                             consequat. Duis aute irure dolor in <a href="/">reprehenderit in voluptate velit esse</a> cillum dolore eu fugiat nulla pariatur. 
@@ -137,8 +146,9 @@ export class Home extends React.Component {
                             </ol>
                         </div>
                     </div>
+                    <div><h2>Table</h2></div>
                     <div className="content_d">
-                        <h2>Table</h2>
+                        
                         <table>
                             <tbody>
                                
@@ -162,9 +172,40 @@ export class Home extends React.Component {
                             </tbody>
                         </table>
                     </div>
+                    <div className="content_d smallTab">
+                        
+                        <table className="tableSmall">
+                            
+                               
+                                
+                                {table.map((tab)=>{
+                                    return(
+                                        
+                                        <tbody key={tab.number}>
+                                            <tr className={tab.numberClass}><td className="numberRed">{tab.number}</td></tr>
+                                            <tr><td>{tab.text}</td></tr>
+                                            <tr><td>{tab.about}</td></tr>
+                                            <tr><td>{tab.who}</td></tr>
+                                            <tr className={tab.languageClass}><td><a href="/">{tab.language}</a></td></tr>
+                                        </tbody> )
+                                    })}
+                            
+                        </table>
+                    </div>
                 </div>
             </div>
         );
     }
 }
 
+
+const mapStateToProps=(state)=>{
+ return {seelocation:state.reducerLocation}   
+}
+const matchDispatchToProps = (dispatch) =>{
+    return{
+        seeLocation:bindActionCreators(seeLocation,dispatch)
+    }
+}
+
+export const Home=connect(mapStateToProps,matchDispatchToProps)(Home2);

@@ -33,6 +33,8 @@ export  function reducerData(state=initialState, action){
             about: action.payload.about, 
             date: action.payload.date, 
             time:action.payload.time };
+            return state;
+            
         default: return state;
             }
     

@@ -10,7 +10,10 @@ import { BrowserRouter as Router} from 'react-router-dom';
 
 
 class App extends Component {
-   
+  
+     componentWillMount(){
+        console.log(window.location);
+    }
   render() {
     
     return (

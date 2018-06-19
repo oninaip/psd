@@ -1,10 +1,15 @@
 import React from 'react';
+import {seeLocation} from './store/actions';
 import {connect} from 'react-redux';
-import {Song} from './containers/Song'
+import {Song} from './containers/Song';
+import {bindActionCreators} from 'redux';
 
 class  Cherry2 extends React.Component{
-   
+    componentWillMount(){
+        this.props.seeLocation(this.props.location.pathname);
+    }
     render(){
+        
         return (
         <div className="content1">
                 <div className="content2">
@@ -31,5 +36,10 @@ class  Cherry2 extends React.Component{
 const mapStateToProps=(state)=>{
  return {songs:state.reducerSong}   
 }
+const matchDispatchToProps = (dispatch) =>{
+    return{
+        seeLocation:bindActionCreators(seeLocation,dispatch)
+    }
+}
 
-export const Cherry=connect(mapStateToProps)(Cherry2);
+export const Cherry=connect(mapStateToProps,matchDispatchToProps)(Cherry2);

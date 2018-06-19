@@ -4,8 +4,14 @@ import {Credit} from './containers/Credit';
 import {DataUser} from './containers/DataUser';
 import {Extend} from './containers/Extend';
 import {History} from './containers/History';
+import {seeLocation} from './store/actions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-export class Sliders extends React.Component {
+export class Sliders2 extends React.Component {
+     componentWillMount(){
+        this.props.seeLocation(this.props.location.pathname);
+    }
     render(){
         
         return (
@@ -32,4 +38,14 @@ export class Sliders extends React.Component {
     }
 }
 
+const mapStateToProps=(state)=>{
+ return {seelocation:state.reducerLocation}   
+}
+const matchDispatchToProps = (dispatch) =>{
+    return{
+        seeLocation:bindActionCreators(seeLocation,dispatch)
+    }
+}
+
+export const Sliders=connect(mapStateToProps,matchDispatchToProps)(Sliders2);
 

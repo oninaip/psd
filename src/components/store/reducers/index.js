@@ -5,6 +5,7 @@ import {reducerCredit} from './reducerCredit';
 import {reducerHistory} from './reducerHistory';
 import {reducerUser} from './reducerUser';
 import {reducerSong} from './reducerSong';
+import {reducerLocation} from './reducerLocation';
 
 export const reducer=combineReducers({
     reducerData,
@@ -12,5 +13,6 @@ export const reducer=combineReducers({
     reducerCredit,
     reducerHistory,
     reducerUser,
-    reducerSong
+    reducerSong,
+    reducerLocation
 })

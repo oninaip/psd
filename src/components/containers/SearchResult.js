@@ -1,16 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {SearchReturn} from './SearchReturn';
 class SearchResultt extends React.Component{
-   ComponentDidUpdate(prevProps, prevState){
-    
-   }
+   
     render(){
         
         const what=this.props.newState;
         const newState = this.props.data;
         const searchName= newState.filter(word=>word.name.includes(what) + word.surname.includes(what) + word.about.includes(what) );
-        
+        const songList=this.props.song;
+        const searchSong= songList.filter(songs=>songs.name.includes(what) + songs.words.includes(what));
         if(what===""){
             return(
             <div className="content1">
@@ -19,7 +18,7 @@ class SearchResultt extends React.Component{
                             <h2 >Search Results</h2>
                         </div>
                         <div className="content_b">                
-                                
+                                <h4 className="red">No results found</h4>
                          </div>   
                     </div>
                 </div>);
@@ -30,16 +29,15 @@ class SearchResultt extends React.Component{
                     <div className="content2">
                         <div className="content_a">
                             <h2 id="searchResult">Search Results</h2>
-                
+                            
                         </div>
-                        <div className="content_b">   
-                
+                        <div>   
+                                
                                 {searchName.map((sea,id)=>{ return (
-                                <div  className="blogTable nameSearch" key={id}>
-                                    <div className="blogName" id="nameSearch">{sea.name} {sea.surname}</div>
-                                    <div className="blogDate">{sea.date} {sea.time}</div>
-                                    <div className="blogText">{sea.about}</div>
-                                </div>
+                                <SearchReturn item={sea} key={id} what={this.props.newState}/> 
+                                ) })}
+                                {searchSong.map((song,id)=>{ return (
+                                <SearchReturn item={song} key={id}/>
                                 ) })}
                               
         
@@ -58,7 +56,8 @@ class SearchResultt extends React.Component{
 const MapStateToProps=(state)=>{
     return {
         data:state.reducerData,
-        newState:state.reducerState
+        newState:state.reducerState,
+        song:state.reducerSong
     }
 }
 

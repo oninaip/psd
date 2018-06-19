@@ -16,7 +16,7 @@ export class Footer extends React.Component {
                                     <li>Weekends! Absolutely No Extra Charge</li>
                                     <li>Holidays! Absolutely No Extra Charge</li>
                                 </ul>
-                                <p>We're in social networks: 
+                                <p className="neworks">We're in social networks: 
                                     <a href="/" className="facebook"> </a> 
                                     <a href="/" className="twitter"> </a>
                                     <a href="/" className="linkedin"> </a> 
